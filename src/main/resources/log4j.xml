@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+    <appender name="myConsole" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <param name="Threshold" value="INFO"/>
+        <!--
+          Threshold是个全局的过滤器，他将把低于所设置的level的信息过滤不显示出来
+         -->
+
+        <!-- 设置日志输出的格式-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
+        </layout>
+    </appender>
+
+    <!--
+      根默认会自动构建一个 root,输出INFO级别的日志到控制台，供logger继承
+     -->
+    <root>
+        <priority value ="INFO"/>
+        <appender-ref ref="myConsole"/>
+    </root>
+</log4j:configuration>
